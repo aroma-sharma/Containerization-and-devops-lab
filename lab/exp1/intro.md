@@ -1,10 +1,10 @@
 # Containerization and DevOps Lab
 
-Name: Mayank Thakur
+Name: Aroma Sharma
 
-Roll no: R2142230924
+Roll no: R2142230003
 
-Sap-ID: 500123412
+Sap-ID: 500118957
 
 
 # Installation and Configuration of Windows Subsystem for Linux (WSL)
