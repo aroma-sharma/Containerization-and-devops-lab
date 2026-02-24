@@ -90,6 +90,7 @@ docker stop <container_id>
 
 To remove the container:
 docker rm <container_id>
+<img width="902" height="366" alt="image" src="https://github.com/user-attachments/assets/35ccf3a8-6353-42a1-9c3c-b2d229a8fb66" />
 
 ![](Dockerdesktopcontainers.png)
 
