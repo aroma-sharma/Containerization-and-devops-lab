@@ -83,6 +83,7 @@ This displays the container ID, image name, status, and port mapping.
 Step 4: Stop and Remove Container
 To stop the running container:
 docker stop <container_id>
+<img width="490" height="68" alt="image" src="https://github.com/user-attachments/assets/b7ba5279-94b7-4a1b-90a7-db8842d5233b" />
 
 ![](Dockerstop.png)
 
