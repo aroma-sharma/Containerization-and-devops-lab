@@ -10,6 +10,7 @@
 2. [Experiment 2 – Docker Container Setup](lab/exp2/intro.md)
 3. [Experiment 3 – Deploying NGINX Using Different Base Images & Layer Comparison](lab/exp3/intro.md)
 4. [Experiment 4 – Docker Essentials](lab/exp4/experiment-4-docker-essentials.md)
+5.  [Experiment 5 – Docker Compose](experiment-5/README.md)
 
 
 ## THEORY
