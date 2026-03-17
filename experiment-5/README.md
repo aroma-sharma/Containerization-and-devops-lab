@@ -247,7 +247,8 @@ ENV DEBUG=false
 EXPOSE 5000
 CMD ["python", "app.py"]
 ```
-![alt text](image-6.png)
+<img width="465" height="168" alt="image" src="https://github.com/user-attachments/assets/97a403a0-1a5c-4475-bfaf-839c5e6a7af6" />
+
 ### Lab 3: Test Environment Variables
 ```Bash
 # Run with custom env vars
@@ -267,7 +268,8 @@ docker exec flask-app printenv DATABASE_HOST
 # Test the endpoint
 curl http://localhost:5000/config
 ```
-![alt text](image-8.png)
+<img width="953" height="1000" alt="image" src="https://github.com/user-attachments/assets/976583a1-8b51-481d-b3bb-7841f688e395" />
+
 ### Part 3: Docker Monitoring 
 ### Lab 1: Basic Monitoring Commands
 ### docker stats - Real-time Container Metrics
