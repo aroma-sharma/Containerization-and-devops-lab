@@ -48,7 +48,8 @@ docker volume ls
 # Inspect volume
 docker volume inspect mydata
 ```
-![alt text](image-2.png)
+<img width="881" height="453" alt="image" src="https://github.com/user-attachments/assets/dddb77f0-91c3-4578-92a7-4bf76e0a0683" />
+
 3. Bind Mounts (Host Directory)
 ```Bash
 # Create directory on host
@@ -65,7 +66,7 @@ docker exec web3 cat /app/data/host-file.txt
 # Shows: From Host
 ```
 
-![alt text](image-1.png)
+
 
 ### Lab 3: Practical Volume Examples
 Example 1: Database with Persistent Storage
