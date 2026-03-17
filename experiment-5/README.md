@@ -65,6 +65,7 @@ echo "From Host" > ~/myapp-data/host-file.txt
 docker exec web3 cat /app/data/host-file.txt
 # Shows: From Host
 ```
+<img width="933" height="817" alt="image" src="https://github.com/user-attachments/assets/3bd57864-9eba-437f-b57a-c2f4e07b2b80" />
 
 
 
@@ -117,7 +118,8 @@ docker run -d \
 # Test
 curl http://localhost:8080
 ```
-![alt text](image-3.png)
+<img width="933" height="817" alt="image" src="https://github.com/user-attachments/assets/b0783e2d-06b5-4cf0-bcf1-b0fb6d506cf8" />
+
 
 Lab 4: Volume Management Commands
 ```Bash
@@ -140,8 +142,10 @@ docker volume rm volume-name
 docker cp local-file.txt container-name:/path/in/volume
 
 ```
-![alt text](image-4.png)
-![alt text](textfile.png)
+<img width="927" height="520" alt="image" src="https://github.com/user-attachments/assets/2c0999e6-1e26-4d50-90ea-f5441633ea3e" />
+
+<img width="341" height="362" alt="image" src="https://github.com/user-attachments/assets/f82122fa-a076-42db-9a3b-5aaf0ebab90d" />
+
 
 ## Part 2: Environment Variables
 Lab 1: Setting Environment Variables
@@ -183,7 +187,8 @@ docker run -d \
   --env-file .env.secrets \
   my-app
 ```
-![alt text](image-7.png)
+<img width="950" height="1018" alt="image" src="https://github.com/user-attachments/assets/54681f7d-2915-47b5-ba0c-6543b7f30632" />
+
 ### Method 3: In Dockerfile
 ```Bash
 # Set default environment variables
@@ -218,7 +223,8 @@ if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=debug_mode)
 ```
-![alt text](image-5.png)
+<img width="766" height="603" alt="image" src="https://github.com/user-attachments/assets/89a643fe-4c6c-418a-97ca-769fbbc1f65d" />
+
 
 ### Dockerfile with Environment Variables
 ```Bash
