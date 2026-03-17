@@ -20,7 +20,8 @@ docker exec test-container cat /data/message.txt
 Solution: Docker Volumes
 ```
 
-![alt text](image.png)
+<img width="931" height="336" alt="image" src="https://github.com/user-attachments/assets/537925cb-f19c-4709-9406-2960dd12662f" />
+
 
 ## Lab 2: Volume Types
 
