@@ -299,7 +299,8 @@ docker stats --format json --no-stream
 docker stats --no-stream --no-trunc
 
 ```
-![alt text](image-9.png)
+<img width="951" height="1017" alt="image" src="https://github.com/user-attachments/assets/82b707ae-dd58-4e1f-b669-cea38dd60ac0" />
+
 ### Lab 2: docker top - Process Monitoring
 ``` Bash
 # View processes in container
@@ -332,7 +333,8 @@ docker logs --since 2024-01-15 container-name
 # Combine options
 docker logs -f --tail 50 -t container-name
 ```
-![alt text](image-10.png)
+<img width="932" height="876" alt="image" src="https://github.com/user-attachments/assets/6288a82c-5050-43de-9677-5b410e98ad97" />
+
 ### Lab 4: Container Inspection
 ```Bash
 # Detailed container info
@@ -418,7 +420,8 @@ docker run -d --name web2 --network my-network nginx
 # Containers can communicate using container names
 docker exec web1 curl http://web2
 ```
-![alt text](image-11.png)
+<img width="937" height="902" alt="image" src="https://github.com/user-attachments/assets/50eb952c-0741-42b7-aecd-aa3283db0b60" />
+
 ### 2. Host Network
 ```Bash
 # Container uses host's network directly
@@ -429,7 +432,8 @@ docker run -d --name host-app --network host nginx
 # Access directly on host port 80
 curl http://localhost
 ```
-![alt text](image-12.png)
+<img width="933" height="595" alt="image" src="https://github.com/user-attachments/assets/17e96af9-9505-4af9-abd9-f35942a5ff6b" />
+
 
 ### 3. None Network
 ```Bash
@@ -440,13 +444,15 @@ docker run -d --name isolated-app --network none alpine sleep 3600
 docker exec isolated-app ifconfig
 
 ```
-![alt text](image-13.png)
+<img width="882" height="322" alt="image" src="https://github.com/user-attachments/assets/ff0ccde7-e9f1-4498-8bd2-21232803d13d" />
+
 ### 4. Overlay Network (Swarm)
 ```Bash
 # For Docker Swarm multi-host networking
 docker network create --driver overlay my-overlay
 ```
-![alt text](image-14.png)
+<img width="603" height="220" alt="image" src="https://github.com/user-attachments/assets/8e7a87f8-f32f-4716-8f5e-2d152cb423a6" />
+
 ### Lab 3: Network Management Commands
 ```Bash
 # Create network
@@ -465,8 +471,10 @@ docker network rm network-name
 # Prune unused networks
 docker network prune
 ```
-![alt text](3.png)
-![alt text](image-15.png)
+<img width="618" height="45" alt="image" src="https://github.com/user-attachments/assets/a8f0a548-a958-4904-a1aa-d27823ad5bf2" />
+
+<img width="952" height="682" alt="image" src="https://github.com/user-attachments/assets/8c5e60e9-1b7f-40ae-ba10-829dc2d4614d" />
+
 ### Lab 4: Multi-Container Application Example
 Web App + Database Communication
 
@@ -493,8 +501,10 @@ docker run -d \
 
 # Web app can connect to database using "postgres-db" hostname
 ```
-![alt text](3.png)
-![alt text](4.png)
+<img width="618" height="45" alt="image" src="https://github.com/user-attachments/assets/db770d13-26f0-4c7d-8b26-4b4cb2bc4a32" />
+
+<img width="932" height="397" alt="image" src="https://github.com/user-attachments/assets/228f991b-7e49-4027-9ca2-ea70db0f8995" />
+
 
 
 ### Lab 5: Network Inspection & Debugging
@@ -515,7 +525,8 @@ docker exec container-name curl -I http://another-container
 # View network ports
 docker port container-name
 ```
-![alt text](image-17.png)
+<img width="1430" height="128" alt="image" src="https://github.com/user-attachments/assets/8673c7a0-d0b9-46b2-83ab-7283d43b47e5" />
+
 
 ### Lab 6: Port Publishing vs Exposing
 ``` Bash
@@ -537,7 +548,8 @@ docker run -d -p 127.0.0.1:8080:80 --name app4 nginx
 # Dockerfile: EXPOSE 80
 # Still need -p to publish
 ```
-![alt text](image-18.png)
+<img width="1447" height="322" alt="image" src="https://github.com/user-attachments/assets/9867ea4c-4e9d-44b5-83f8-d4e6e5d57cf0" />
+
 
 ### Part 5: Complete Real-World Example
 Application Architecture:
@@ -586,7 +598,8 @@ docker run -d \
   --env-file .env.production \
   flask-app:latest
 ```
-![alt text](image-20.png)
+<img width="1458" height="428" alt="image" src="https://github.com/user-attachments/assets/135b4c43-fef3-4610-81d2-67e535c6c824" />
+
 ```bash
 Monitoring commands 
 # Check all components
@@ -605,6 +618,9 @@ docker exec flask-app ping -c 2 redis
 # View network details
 docker network inspect myapp-network
 ```
-![alt text](image-21.png)
-![alt text](image-19.png)
-![alt text](image-16.png)
+<img width="1341" height="235" alt="image" src="https://github.com/user-attachments/assets/5af457a1-a678-424a-bfdd-e41df9d2b530" />
+
+<img width="772" height="650" alt="image" src="https://github.com/user-attachments/assets/3df003d4-818a-45e0-903f-84aa4af497be" />
+
+<img width="1446" height="652" alt="image" src="https://github.com/user-attachments/assets/b434e77e-c914-4dab-bd77-8c8b90596a32" />
+
