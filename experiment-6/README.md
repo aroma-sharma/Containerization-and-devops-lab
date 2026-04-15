@@ -18,6 +18,9 @@ docker run -d \
   nginx:alpine
 alt text
 
+<img width="981" height="147" alt="image" src="https://github.com/user-attachments/assets/423d1cae-276d-41cc-ad8c-535e5ede3138" />
+
+
 2. Docker Compose (Declarative Approach)
 
 Docker Compose uses a YAML file (docker-compose.yml) to define services, networks, and volumes in a structured format. Instead of multiple commands, a single command is used: docker compose up -d
@@ -36,7 +39,9 @@ services:
     environment:
       NGINX_HOST: localhost
     restart: unless-stopped
-alt text
+
+<img width="866" height="597" alt="image" src="https://github.com/user-attachments/assets/8a45fa2a-c952-4555-b313-7dfc2265918a" />
+
 
 3. Mapping: Docker Run vs Docker Compose
 
@@ -70,16 +75,22 @@ docker run -d \
   -p 8081:80 \
   -v $(pwd)/html:/usr/share/nginx/html \
   nginx:alpine
-alt text
+
+<img width="980" height="152" alt="image" src="https://github.com/user-attachments/assets/fbb45cfe-9465-4cc8-b8c3-2d6b166267a0" />
+
 
 Verify container is running:
 
 docker ps
-alt text Access in browser: http://localhost:8081
+
+<img width="979" height="72" alt="image" src="https://github.com/user-attachments/assets/23ab6633-5b9b-4e46-aea9-26df7acb82ba" />
+
 
 📸 Screenshot – Browser output (Docker Run):
 
-![Browser output - Docker Run localhost:8081]alt text
+![Browser output - Docker Run localhost:8081]
+
+<img width="982" height="93" alt="image" src="https://github.com/user-attachments/assets/808646d2-d302-4bce-8e82-9ffadad36133" />
 
 Stop and remove container:
 
@@ -101,10 +112,13 @@ services:
 Run container:
 
 docker compose up -d
-alt text Verify:
+
+<img width="982" height="218" alt="image" src="https://github.com/user-attachments/assets/c3d0390c-0b35-48b8-a231-694dff08207e" />
+
 
 docker compose ps
-alt text
+<img width="983" height="75" alt="Screenshot 2026-04-15 at 8 50 57 AM" src="https://github.com/user-attachments/assets/a07e0338-ed5d-4be0-b4cc-77e50a2919d2" />
+
 
 Stop containers:
 
@@ -118,7 +132,8 @@ Part A: Using Docker Run (Manual Method)
 Step 1: Create network:
 
 docker network create wp-net
-alt text
+
+<img width="969" height="50" alt="image" src="https://github.com/user-attachments/assets/a6d61f33-be66-46ac-9263-491aef111434" />
 
 Step 2: Run MySQL container:
 
@@ -128,7 +143,10 @@ docker run -d \
   -e MYSQL_ROOT_PASSWORD=secret \
   -e MYSQL_DATABASE=wordpress \
   mysql:5.7
-alt text Step 3: Run WordPress container:
+  
+<img width="1308" height="817" alt="image" src="https://github.com/user-attachments/assets/2084a855-86c7-46c1-b7a3-b45caeec4eeb" />
+
+ Step 3: Run WordPress container:
 
 docker run -d \
   --name wordpress \
