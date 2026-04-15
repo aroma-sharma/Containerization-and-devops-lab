@@ -25,7 +25,7 @@ docker run -d \
 Docker Compose uses a YAML file (docker-compose.yml) to define services, networks, and volumes in a structured format. Instead of multiple commands, a single command is used: docker compose up -d
 
 Equivalent Compose file:
-
+```bash
 version: '3.8'
 services:
   nginx:
@@ -38,22 +38,14 @@ services:
     environment:
       NGINX_HOST: localhost
     restart: unless-stopped
-
+```
 <img width="866" height="597" alt="image" src="https://github.com/user-attachments/assets/8a45fa2a-c952-4555-b313-7dfc2265918a" />
 
 
 3. Mapping: Docker Run vs Docker Compose
 
-Docker Run Flag	Docker Compose Equivalent
--p 8080:80	ports:
--v host:container	volumes:
--e KEY=value	environment:
---name	container_name:
---network	networks:
---restart	restart:
---memory	deploy.resources.limits.memory
---cpus	deploy.resources.limits.cpus
--d	docker compose up -d
+<img width="475" height="374" alt="image" src="https://github.com/user-attachments/assets/a2e473dc-1ed7-4313-87f2-6a285f4063b2" />
+
 4. Advantages of Docker Compose
 
 Simplifies multi-container applications
@@ -68,13 +60,13 @@ Task 1: Single Container Comparison
 Step 1: Run Nginx Using Docker Run
 
 Command:
-
+```bash
 docker run -d \
   --name lab-nginx \
   -p 8081:80 \
   -v $(pwd)/html:/usr/share/nginx/html \
   nginx:alpine
-
+```
 <img width="980" height="152" alt="image" src="https://github.com/user-attachments/assets/fbb45cfe-9465-4cc8-b8c3-2d6b166267a0" />
 
 
