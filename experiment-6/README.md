@@ -9,14 +9,14 @@ PART A – Theory
 The docker run command creates and starts a container from an image. It requires explicit flags for port mapping (-p), volume mounting (-v), environment variables (-e), network configuration (--network), restart policies (--restart), resource limits (--memory, --cpus), and container name (--name).
 
 Example:
-
+```bash
 docker run -d \
   --name my-nginx \
   -p 8080:80 \
   -v ./html:/usr/share/nginx/html \
   -e NGINX_HOST=localhost \
   nginx:alpine
-
+```
 <img width="981" height="147" alt="image" src="https://github.com/user-attachments/assets/423d1cae-276d-41cc-ad8c-535e5ede3138" />
 
 
