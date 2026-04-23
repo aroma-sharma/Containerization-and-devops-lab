@@ -308,34 +308,36 @@ Successfully implemented a complete CI/CD pipeline where:
 ---
 
 ### Screenshot 5 — LocalTunnel Connection Error (Firewall)
-![LocalTunnel Connection Error]![alt text](image-4.png)
+![LocalTunnel Connection Error]! 
 
 > Localtunnel connection refused error due to firewall settings — resolved by switching to `npx localtunnel` instead of the global `lt` command.
 
 ---
 
 ### Screenshot 6 — Jenkins Account Settings
-![Jenkins Account Settings]!![alt text](image-6.png)
+![Jenkins Account Settings]!! <img width="1554" height="1012" alt="image" src="https://github.com/user-attachments/assets/24db4071-492f-4a0c-b2c0-000d00b7031d" />
+
 
 > Jenkins user account page for `mayankthakur` showing profile, credentials, and email settings via the localtunnel public URL.
 
 ---
 
 ### Screenshot 7 — Adding New Node (Agent)
-![Jenkins New Node Creation]![alt text](image-7.png)
+![Jenkins New Node Creation]! <img width="1280" height="687" alt="image" src="https://github.com/user-attachments/assets/45369f91-47f3-41ea-9d82-65ea3c8ee8a7" />
+
 > Creating a new Permanent Agent node named `Mayank node` in Jenkins under `Manage Jenkins → Nodes → New Node`.
 
 ---
 
 ### Screenshot 8 — Nodes Dashboard
-![alt text](image-8.png)
+<img width="918" height="553" alt="image" src="https://github.com/user-attachments/assets/2639a635-45e6-4da3-a6a8-e8f4e409262a" />
 
 > Jenkins Nodes page showing the `Built-In Node` (Linux aarch64) and the newly added `Mayank node macos` agent.
 
 ---
 
 ### Screenshot 9 — Agent Connection Command
-![Jenkins Agent Command]![alt text](image-9.png)
+![Jenkins Agent Command]!<img width="1004" height="470" alt="image" src="https://github.com/user-attachments/assets/8eb91731-4572-48cd-83de-1cc0d2ca6adc" />
 
 > Jenkins displaying the JNLP agent connection commands (Unix/Windows) with a secret token to connect `Mayank node macos` as a remote agent.
 
