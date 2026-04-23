@@ -141,12 +141,14 @@ services:
 ```bash
 docker compose up -d
 ```
-![alt text](image-3.png)
+ <img width="1003" height="280" alt="image" src="https://github.com/user-attachments/assets/1dc6a444-cf7e-42f7-96eb-8c95994ee245" />
+
 **Verify:**
 ```bash
 docker compose ps
 ```
-![alt text](image-5.png)
+<img width="1009" height="77" alt="image" src="https://github.com/user-attachments/assets/90fccc45-b2d2-465e-9023-220ee62f2c49" />
+
 ---
 
 **Stop containers:**
@@ -166,7 +168,8 @@ docker compose down
 ```bash
 docker network create wp-net
 ```
-![alt text](image-6.png)
+<img width="1007" height="57" alt="image" src="https://github.com/user-attachments/assets/71802f92-e259-4e4d-8765-88277b2768a9" />
+
 
 **Step 2: Run MySQL container:**
 ```bash
@@ -177,7 +180,8 @@ docker run -d \
   -e MYSQL_DATABASE=wordpress \
   mysql:5.7
 ```
-![alt text](image-7.png)
+<img width="1011" height="705" alt="image" src="https://github.com/user-attachments/assets/03bb217f-0e37-4974-9985-1758a7e63e34" />
+
 **Step 3: Run WordPress container:**
 ```bash
 docker run -d \
@@ -188,18 +192,20 @@ docker run -d \
   -e WORDPRESS_DB_PASSWORD=secret \
   wordpress:latest
 ```
-![alt text](image-8.png)
+<img width="1261" height="931" alt="image" src="https://github.com/user-attachments/assets/e2391416-70aa-4599-bf40-bc7a113e4d92" />
+
 **Verify both containers running:**
 ```bash
 docker ps
 ```
-![alt text](image-4.png)
+<img width="1009" height="75" alt="image" src="https://github.com/user-attachments/assets/5a626489-313c-44c9-a830-aa21ee174fe7" />
+
 **Access in browser:** `http://localhost:8082`
 
 **📸 Screenshot – WordPress installation page (via Docker Run):**
-![alt text](<Screenshot 2026-03-19 at 11.02.08 PM.png>)
+<img width="996" height="557" alt="image" src="https://github.com/user-attachments/assets/6c7c3156-82c9-424b-8baf-e23b9a2b2a3e" />
 
-![alt text](image-9.png)
+<img width="921" height="570" alt="image" src="https://github.com/user-attachments/assets/d2116678-c6ae-4596-92cf-a7cf0b902dc0" />
 
 > *The WordPress installation page loads at `http://localhost:8082`, confirming both the MySQL and WordPress containers are running and communicating via the `wp-net` Docker network.*
 
@@ -232,7 +238,8 @@ services:
 volumes:
   mysql_data:
 ```
-![alt text](image-10.png)
+<img width="820" height="1196" alt="image" src="https://github.com/user-attachments/assets/c9589e89-97c6-4acb-980b-10182deafa47" />
+
 **Start application:**
 ```bash
 docker compose up -d
@@ -246,7 +253,7 @@ docker ps
 
 **📸 Screenshot – WordPress page via Docker Compose:**
 
-![alt text](<Screenshot 2026-03-19 at 11.02.08 PM.png>)
+<img width="1280" height="693" alt="image" src="https://github.com/user-attachments/assets/fff55b76-67d9-471f-80c4-302adddf0839" />
 
 **Stop and remove everything:**
 ```bash
@@ -275,7 +282,8 @@ docker run -d \
   --restart unless-stopped \
   node:18-alpine
 ```
-![alt text](image-13.png)
+<img width="981" height="218" alt="image" src="https://github.com/user-attachments/assets/9a5b4cd6-b184-4182-98a4-f456fc27cf1c" />
+
 **Equivalent `docker-compose.yml`:**
 ```yaml
 version: '3.8'
@@ -290,7 +298,8 @@ services:
       DEBUG: "false"
     restart: unless-stopped
 ```
-![alt text](image-12.png)
+<img width="981" height="518" alt="image" src="https://github.com/user-attachments/assets/e0d270c9-d1fa-4646-b618-ca2c723c1ff8" />
+
 **Run:**
 ```bash
 docker compose up -d
@@ -300,7 +309,8 @@ docker compose up -d
 ```bash
 docker compose ps
 ```
-![alt text](image-15.png)
+****<img width="982" height="278" alt="image" src="https://github.com/user-attachments/assets/8f7dd0cf-d8de-45b8-a8d4-14c0bfd92ac3" />
+
 ---
 
 #### Problem 2: Volume + Network Configuration
@@ -326,7 +336,8 @@ docker run -d \
   -e DB_PASS=secret \
   python:3.11-slim
 ```
-![alt text](image-16.png)
+<img width="982" height="237" alt="image" src="https://github.com/user-attachments/assets/e4dcf781-8e8c-47e8-818a-b2cb811b257c" />
+
 **Equivalent `docker-compose.yml`:**
 ```yaml
 version: '3.8'
@@ -362,8 +373,8 @@ volumes:
 networks:
   app-net:
 ```
+<img width="1418" height="1500" alt="image" src="https://github.com/user-attachments/assets/9beec397-de61-43a2-9897-2ad9c9333f38" />
 
-![alt text](image-14.png)
 **Run:**
 ```bash
 docker compose up -d
