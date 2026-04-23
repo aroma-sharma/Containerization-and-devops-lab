@@ -161,7 +161,8 @@ services:
 volumes:
   jenkins_home:
 ```
-![alt text](image.png)
+<img width="819" height="503" alt="image" src="https://github.com/user-attachments/assets/4b4f9880-88e3-4701-bbdf-792989cf0c02" />
+
 ### 6.2 Start Jenkins
 
 ```bash
@@ -276,29 +277,31 @@ Successfully implemented a complete CI/CD pipeline where:
 
 ## 13. Screenshots
 
+
 ### Screenshot 1 — Jenkins Plugin Installation (Getting Started)
-![Jenkins Getting Started - Plugin Setup]![alt text](image-1.png)
+<img width="1032" height="594" alt="image" src="https://github.com/user-attachments/assets/eca630ae-624c-436d-aae8-acb2cb6bc762" />
 
 > Jenkins loading suggested plugins during the initial setup wizard at `localhost:8080`.
 
 ---
 
 ### Screenshot 2 — Create First Admin User
-![Create First Admin User]![alt text](image-2.png)
+![Create First Admin User]! <img width="806" height="324" alt="image" src="https://github.com/user-attachments/assets/a2ebff4e-7275-4abe-810c-7b0ccb818a18" />
 
-> Creating the admin user `MayankThakur` during Jenkins initial configuration.
+
+> Creating the admin user `AromaSharma` during Jenkins initial configuration.
 
 ---
 
 ### Screenshot 3 — LocalTunnel Warning Page
-![LocalTunnel Tunnel Warning]![alt text](image-3.png)
+![LocalTunnel Tunnel Warning]! <img width="1009" height="546" alt="image" src="https://github.com/user-attachments/assets/50d256ef-02c3-46ea-b4a9-f3e2622805f5" />
 
 > The localtunnel gateway page for `https://green-donuts-nail.loca.lt` — requiring IP confirmation before accessing Jenkins publicly.
 
 ---
 
 ### Screenshot 4 — LocalTunnel Setup in Terminal
-![LocalTunnel Terminal Setup]!![alt text](image-5.png)
+![LocalTunnel Terminal Setup]!
 
 > Terminal showing `npm install -g localtunnel`, `docker ps` confirming Jenkins container is running, and `npx localtunnel --port 8080` generating the public tunnel URL.
 
