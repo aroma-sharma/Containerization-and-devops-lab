@@ -160,7 +160,8 @@ docker build -t ubuntu-server .
 ```
 
 ---
-![alt text](screenshots/dockerfile.png)
+<img width="1007" height="653" alt="image" src="https://github.com/user-attachments/assets/f0cc8944-550d-4b03-95c7-3a6cf518d7f5" />
+
 ### Step 4: Launch 4 Server Containers
 
 ```bash
@@ -216,7 +217,8 @@ cat inventory.ini
 
 **Expected `inventory.ini` content:**
 
-![alt text](screenshots/image-2.png)
+<img width="974" height="558" alt="image" src="https://github.com/user-attachments/assets/589eb69a-f85e-4816-8457-1a9a63c5b58f" />
+
 
 ### Step 6: Test Connectivity
 
@@ -252,7 +254,8 @@ ansible all -i inventory.ini -m ping
     "ping": "pong"
 }
 ```
-![alt text](screenshots/image-3.png)
+<img width="988" height="385" alt="image" src="https://github.com/user-attachments/assets/b779199c-7bf3-427f-bdfe-5cdc0bd19572" />
+
 For verbose output (useful for debugging):
 
 
@@ -284,7 +287,8 @@ For verbose output (useful for debugging):
         dest: /root/ansible_test.txt
         content: "Configured by Ansible on {{ inventory_hostname }}"
 ```
-![alt text](screenshots/image-4.png)
+<img width="1081" height="752" alt="image" src="https://github.com/user-attachments/assets/67475c38-3713-4a93-9ab7-105de58f426f" />
+
 Run the playbook:
 
 ```bash
@@ -323,7 +327,7 @@ PLAY RECAP *********************************************************************
 ```
 
 ---
-![alt text](screenshots/imagecopy.png)
+<img width="988" height="333" alt="image" src="https://github.com/user-attachments/assets/b2e418ed-75cf-48b9-a702-0ad54070cea3" />
 
 ### Step 8: Create Advanced Playbook (`playbook1.yml`)
 
@@ -381,7 +385,8 @@ Using Ansible to read the created file across all servers:
 ```bash
 ansible all -i inventory.ini -m command -a "cat /root/ansible_test.txt"
 ```
-![alt text](screenshots/image.png)
+<img width="989" height="326" alt="image" src="https://github.com/user-attachments/assets/9303194a-fdbc-4bf2-8a35-67107e611cef" />
+
 Using Docker exec directly:
 
 ```bash
@@ -389,7 +394,8 @@ for i in {1..4}; do
     docker exec server${i} cat /root/ansible_test.txt
 done
 ```
-![alt text](screenshots/image-1.png)
+<img width="1002" height="385" alt="image" src="https://github.com/user-attachments/assets/d9ce9644-0b7e-41c7-9011-675584dde448" />
+
 **Expected output on each server:**
 
 ```
