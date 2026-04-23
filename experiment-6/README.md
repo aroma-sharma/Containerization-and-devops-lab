@@ -1,14 +1,25 @@
-Objective
+# Experiment 6: Comparison of Docker Run and Docker Compose
 
-To understand the relationship between docker run and Docker Compose, and to compare their configuration syntax and use cases by deploying single-container and multi-container applications.
+**Name:** Mayank Thakur
+**Roll No:** R2142230924
+**Course:** Containerization and DevOps Lab
+**Experiment No:** 6
 
-PART A – Theory
+---
 
-1. Docker Run (Imperative Approach)
+##  Objective
 
-The docker run command creates and starts a container from an image. It requires explicit flags for port mapping (-p), volume mounting (-v), environment variables (-e), network configuration (--network), restart policies (--restart), resource limits (--memory, --cpus), and container name (--name).
+To understand the relationship between `docker run` and Docker Compose, and to compare their configuration syntax and use cases by deploying single-container and multi-container applications.
 
-Example:
+---
+
+##  PART A – Theory
+
+### 1. Docker Run (Imperative Approach)
+
+The `docker run` command creates and starts a container from an image. It requires explicit flags for port mapping (`-p`), volume mounting (`-v`), environment variables (`-e`), network configuration (`--network`), restart policies (`--restart`), resource limits (`--memory`, `--cpus`), and container name (`--name`).
+
+**Example:**
 ```bash
 docker run -d \
   --name my-nginx \
@@ -17,15 +28,14 @@ docker run -d \
   -e NGINX_HOST=localhost \
   nginx:alpine
 ```
-<img width="981" height="147" alt="image" src="https://github.com/user-attachments/assets/423d1cae-276d-41cc-ad8c-535e5ede3138" />
+<img width="1008" height="151" alt="image" src="https://github.com/user-attachments/assets/0e090cf6-56ac-477d-b28a-7bc96d6172ec" />
 
+### 2. Docker Compose (Declarative Approach)
 
-2. Docker Compose (Declarative Approach)
+Docker Compose uses a YAML file (`docker-compose.yml`) to define services, networks, and volumes in a structured format. Instead of multiple commands, a single command is used: `docker compose up -d`
 
-Docker Compose uses a YAML file (docker-compose.yml) to define services, networks, and volumes in a structured format. Instead of multiple commands, a single command is used: docker compose up -d
-
-Equivalent Compose file:
-```bash
+**Equivalent Compose file:**
+```yaml
 version: '3.8'
 services:
   nginx:
@@ -39,27 +49,44 @@ services:
       NGINX_HOST: localhost
     restart: unless-stopped
 ```
-<img width="866" height="597" alt="image" src="https://github.com/user-attachments/assets/8a45fa2a-c952-4555-b313-7dfc2265918a" />
+<img width="853" height="597" alt="image" src="https://github.com/user-attachments/assets/68d3f849-37b8-46d9-a093-aaf79458181e" />
 
 
-3. Mapping: Docker Run vs Docker Compose
+### 3. Mapping: Docker Run vs Docker Compose
 
-<img width="475" height="374" alt="image" src="https://github.com/user-attachments/assets/a2e473dc-1ed7-4313-87f2-6a285f4063b2" />
+| Docker Run Flag | Docker Compose Equivalent |
+|---|---|
+| `-p 8080:80` | `ports:` |
+| `-v host:container` | `volumes:` |
+| `-e KEY=value` | `environment:` |
+| `--name` | `container_name:` |
+| `--network` | `networks:` |
+| `--restart` | `restart:` |
+| `--memory` | `deploy.resources.limits.memory` |
+| `--cpus` | `deploy.resources.limits.cpus` |
+| `-d` | `docker compose up -d` |
 
-4. Advantages of Docker Compose
+### 4. Advantages of Docker Compose
 
-Simplifies multi-container applications
-Provides reproducibility
-Version controllable configuration
-Unified lifecycle management
-Supports service scaling: docker compose up --scale web=3
-🧪 PART B – Practical Implementation
+1. Simplifies multi-container applications
+2. Provides reproducibility
+3. Version controllable configuration
+4. Unified lifecycle management
+5. Supports service scaling: `docker compose up --scale web=3`
 
-Task 1: Single Container Comparison
+---
 
-Step 1: Run Nginx Using Docker Run
+## 🧪 PART B – Practical Implementation
 
-Command:
+---
+
+### Task 1: Single Container Comparison
+
+---
+
+#### Step 1: Run Nginx Using Docker Run
+
+**Command:**
 ```bash
 docker run -d \
   --name lab-nginx \
@@ -67,30 +94,38 @@ docker run -d \
   -v $(pwd)/html:/usr/share/nginx/html \
   nginx:alpine
 ```
-<img width="980" height="152" alt="image" src="https://github.com/user-attachments/assets/fbb45cfe-9465-4cc8-b8c3-2d6b166267a0" />
+
+<img width="1003" height="157" alt="image" src="https://github.com/user-attachments/assets/2ef0e6ef-7206-4bc9-b529-569730d6ba10" />
 
 
-Verify container is running:
-
+**Verify container is running:**
+```bash
 docker ps
+```
+<img width="1010" height="72" alt="image" src="https://github.com/user-attachments/assets/5b51c680-85a5-4ff6-994b-a245effde6ab" />
 
-<img width="979" height="72" alt="image" src="https://github.com/user-attachments/assets/23ab6633-5b9b-4e46-aea9-26df7acb82ba" />
+**Access in browser:** `http://localhost:8081`
+
+**📸 Screenshot – Browser output (Docker Run):**
+
+![Browser output - Docker Run localhost:8081]! ![Uploading Screenshot 2026-04-23 at 11.20.18 PM.png…]()
 
 
-📸 Screenshot – Browser output (Docker Run):
 
-![Browser output - Docker Run localhost:8081]
+---
 
-<img width="982" height="93" alt="image" src="https://github.com/user-attachments/assets/808646d2-d302-4bce-8e82-9ffadad36133" />
-
-Stop and remove container:
-
+**Stop and remove container:**
+```bash
 docker stop lab-nginx
 docker rm lab-nginx
-Step 2: Run Same Setup Using Docker Compose
+```
 
-Create docker-compose.yml:
+---
 
+#### Step 2: Run Same Setup Using Docker Compose
+
+**Create `docker-compose.yml`:**
+```yaml
 version: '3.8'
 services:
   nginx:
@@ -100,45 +135,51 @@ services:
       - "8081:80"
     volumes:
       - ./html:/usr/share/nginx/html
-Run container:
+```
 
+**Run container:**
+```bash
 docker compose up -d
-
-<img width="982" height="218" alt="image" src="https://github.com/user-attachments/assets/c3d0390c-0b35-48b8-a231-694dff08207e" />
-
-
+```
+![alt text](image-3.png)
+**Verify:**
+```bash
 docker compose ps
-<img width="983" height="75" alt="Screenshot 2026-04-15 at 8 50 57 AM" src="https://github.com/user-attachments/assets/a07e0338-ed5d-4be0-b4cc-77e50a2919d2" />
+```
+![alt text](image-5.png)
+---
 
-
-Stop containers:
-
+**Stop containers:**
+```bash
 docker compose down
-Command Explanation:Docker compose down: Stop and remove all services, networks (but preserves volumes)
+```
+##### Command Explanation:Docker compose down: Stop and remove all services, networks (but preserves volumes)
+---
 
-Task 2: Multi-Container Application — WordPress + MySQL
+### Task 2: Multi-Container Application — WordPress + MySQL
 
-Part A: Using Docker Run (Manual Method)
+---
 
-Step 1: Create network:
+#### Part A: Using Docker Run (Manual Method)
 
+**Step 1: Create network:**
+```bash
 docker network create wp-net
+```
+![alt text](image-6.png)
 
-<img width="969" height="50" alt="image" src="https://github.com/user-attachments/assets/a6d61f33-be66-46ac-9263-491aef111434" />
-
-Step 2: Run MySQL container:
-
+**Step 2: Run MySQL container:**
+```bash
 docker run -d \
   --name mysql \
   --network wp-net \
   -e MYSQL_ROOT_PASSWORD=secret \
   -e MYSQL_DATABASE=wordpress \
   mysql:5.7
-  
-<img width="1308" height="817" alt="image" src="https://github.com/user-attachments/assets/2084a855-86c7-46c1-b7a3-b45caeec4eeb" />
-
- Step 3: Run WordPress container:
-
+```
+![alt text](image-7.png)
+**Step 3: Run WordPress container:**
+```bash
 docker run -d \
   --name wordpress \
   --network wp-net \
@@ -146,20 +187,28 @@ docker run -d \
   -e WORDPRESS_DB_HOST=mysql \
   -e WORDPRESS_DB_PASSWORD=secret \
   wordpress:latest
-alt text Verify both containers running:
-
+```
+![alt text](image-8.png)
+**Verify both containers running:**
+```bash
 docker ps
-alt text Access in browser: http://localhost:8082
+```
+![alt text](image-4.png)
+**Access in browser:** `http://localhost:8082`
 
-📸 Screenshot – WordPress installation page (via Docker Run): alt text
+**📸 Screenshot – WordPress installation page (via Docker Run):**
+![alt text](<Screenshot 2026-03-19 at 11.02.08 PM.png>)
 
-alt text
+![alt text](image-9.png)
 
-The WordPress installation page loads at http://localhost:8082, confirming both the MySQL and WordPress containers are running and communicating via the wp-net Docker network.
-Part B: Using Docker Compose (Structured Method)
+> *The WordPress installation page loads at `http://localhost:8082`, confirming both the MySQL and WordPress containers are running and communicating via the `wp-net` Docker network.*
 
-Create docker-compose.yml:
+---
 
+#### Part B: Using Docker Compose (Structured Method)
+
+**Create `docker-compose.yml`:**
+```yaml
 version: '3.8'
 services:
   mysql:
@@ -182,29 +231,42 @@ services:
 
 volumes:
   mysql_data:
-alt text Start application:
-
+```
+![alt text](image-10.png)
+**Start application:**
+```bash
 docker compose up -d
-Verify:
-
+```
+**Verify:**
+```bash
 docker ps
-Access in browser: http://localhost:8082
+```
 
-📸 Screenshot – WordPress page via Docker Compose:
+**Access in browser:** `http://localhost:8082`
 
-alt text
+**📸 Screenshot – WordPress page via Docker Compose:**
 
-Stop and remove everything:
+![alt text](<Screenshot 2026-03-19 at 11.02.08 PM.png>)
 
+**Stop and remove everything:**
+```bash
 docker compose down -v
-🔄 PART C – Conversion & Build-Based Tasks
+```
 
-Task 3: Convert Docker Run to Docker Compose
+---
 
-Problem 1: Basic Web Application
+## 🔄 PART C – Conversion & Build-Based Tasks
 
-Given Docker Run command:
+---
 
+### Task 3: Convert Docker Run to Docker Compose
+
+---
+
+#### Problem 1: Basic Web Application
+
+**Given Docker Run command:**
+```bash
 docker run -d \
   --name webapp \
   -p 5000:5000 \
@@ -212,8 +274,10 @@ docker run -d \
   -e DEBUG=false \
   --restart unless-stopped \
   node:18-alpine
-alt text Equivalent docker-compose.yml:
-
+```
+![alt text](image-13.png)
+**Equivalent `docker-compose.yml`:**
+```yaml
 version: '3.8'
 services:
   webapp:
@@ -225,18 +289,24 @@ services:
       APP_ENV: production
       DEBUG: "false"
     restart: unless-stopped
-alt text Run:
-
+```
+![alt text](image-12.png)
+**Run:**
+```bash
 docker compose up -d
-Verify:
+```
 
+**Verify:**
+```bash
 docker compose ps
-alt text
+```
+![alt text](image-15.png)
+---
 
-Problem 2: Volume + Network Configuration
+#### Problem 2: Volume + Network Configuration
 
-Given Docker Run commands:
-
+**Given Docker Run commands:**
+```bash
 docker network create app-net
 
 docker run -d \
@@ -255,8 +325,10 @@ docker run -d \
   -e DB_USER=admin \
   -e DB_PASS=secret \
   python:3.11-slim
-alt text Equivalent docker-compose.yml:
-
+```
+![alt text](image-16.png)
+**Equivalent `docker-compose.yml`:**
+```yaml
 version: '3.8'
 services:
   postgres-db:
@@ -289,51 +361,76 @@ volumes:
 
 networks:
   app-net:
-alt text Run:
+```
 
+![alt text](image-14.png)
+**Run:**
+```bash
 docker compose up -d
-Stop and remove:
+```
 
+**Stop and remove:**
+```bash
 docker compose down -v
-📊 Comparison: Docker Run vs Docker Compose
+```
 
-Feature	Docker Run	Docker Compose
-Approach	Imperative	Declarative
-Configuration	Command line flags	YAML file
-Multi-container support	Complex (manual)	Easy (depends_on)
-Reusability	Low	High
-Version control	Difficult	Easy (commit YAML)
-Networking	Manual (--network)	Auto-created
-Volumes	Manual (-v)	Defined in YAML
-Scaling	Not supported	--scale flag
-Result
+---
+
+## 📊 Comparison: Docker Run vs Docker Compose
+
+| Feature | Docker Run | Docker Compose |
+|---|---|---|
+| Approach | Imperative | Declarative |
+| Configuration | Command line flags | YAML file |
+| Multi-container support | Complex (manual) | Easy (`depends_on`) |
+| Reusability | Low | High |
+| Version control | Difficult | Easy (commit YAML) |
+| Networking | Manual (`--network`) | Auto-created |
+| Volumes | Manual (`-v`) | Defined in YAML |
+| Scaling | Not supported | `--scale` flag |
+
+---
+
+##  Result
 
 Successfully completed:
+-  Nginx container using Docker Run — verified at `http://localhost:8081`
+-  Nginx container using Docker Compose — verified at `http://localhost:8081`
+- WordPress + MySQL using Docker Run — verified at `http://localhost:8082`
+-  WordPress + MySQL using Docker Compose — verified at `http://localhost:8082`
+-  Docker Run to Compose conversion (Problems 1 & 2)
+- Resource limits conversion (Task 4)
+-  Custom Dockerfile with Compose (Task 5)
+-  Multi-stage Dockerfile with Compose (Task 6)
 
-Nginx container using Docker Run — verified at http://localhost:8081
-Nginx container using Docker Compose — verified at http://localhost:8081
-WordPress + MySQL using Docker Run — verified at http://localhost:8082
-WordPress + MySQL using Docker Compose — verified at http://localhost:8082
-Docker Run to Compose conversion (Problems 1 & 2)
-Resource limits conversion (Task 4)
-Custom Dockerfile with Compose (Task 5)
-Multi-stage Dockerfile with Compose (Task 6)
-Viva Questions
+---
 
-Q1. What is Docker Compose? Docker Compose is a tool used to define and run multi-container Docker applications using a YAML configuration file (docker-compose.yml).
+##  Viva Questions
 
-Q2. What is the difference between Docker Run and Docker Compose? Docker Run executes containers manually using CLI commands (imperative), while Docker Compose manages multiple containers using a declarative YAML configuration file.
+**Q1. What is Docker Compose?**
+Docker Compose is a tool used to define and run multi-container Docker applications using a YAML configuration file (`docker-compose.yml`).
 
-Q3. What does depends_on do? It ensures that one service starts before another. For example, WordPress waits for MySQL to start before launching.
+**Q2. What is the difference between Docker Run and Docker Compose?**
+Docker Run executes containers manually using CLI commands (imperative), while Docker Compose manages multiple containers using a declarative YAML configuration file.
 
-Q4. Why are Docker networks used? Docker networks allow containers to communicate with each other using container names as hostnames, without exposing ports to the host machine.
+**Q3. What does `depends_on` do?**
+It ensures that one service starts before another. For example, WordPress waits for MySQL to start before launching.
 
-Q5. What is the difference between image: and build: in Compose? image: pulls a prebuilt image from Docker Hub, while build: builds a custom image from a local Dockerfile.
+**Q4. Why are Docker networks used?**
+Docker networks allow containers to communicate with each other using container names as hostnames, without exposing ports to the host machine.
 
-Q6. What does docker compose down -v do? It stops and removes containers, networks, AND named volumes defined in the Compose file.
+**Q5. What is the difference between `image:` and `build:` in Compose?**
+`image:` pulls a prebuilt image from Docker Hub, while `build:` builds a custom image from a local Dockerfile.
 
-Conclusion
+**Q6. What does `docker compose down -v` do?**
+It stops and removes containers, networks, AND named volumes defined in the Compose file.
 
-Docker Compose provides a structured and efficient way to manage multi-container applications compared to docker run. It simplifies deployment, improves maintainability, enables version control of infrastructure, and allows easy scaling of services using a single declarative YAML file.
+---
 
-Experiment 6 | Containerization and DevOps Lab | UPES Dehradun
+##  Conclusion
+
+Docker Compose provides a structured and efficient way to manage multi-container applications compared to `docker run`. It simplifies deployment, improves maintainability, enables version control of infrastructure, and allows easy scaling of services using a single declarative YAML file.
+
+---
+
+*Experiment 6 | Containerization and DevOps Lab | UPES Dehradun*
