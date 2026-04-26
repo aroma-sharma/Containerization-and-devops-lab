@@ -15,7 +15,8 @@
 8. [Experiment 7 - CI/CD Pipeline using Jenkins, GitHub and Docker Hub](experiment-7/README.md)
 9. [Experiment 8 - Chef Server Setup & Configuration](experiment-8/README.md)
 10. [Experiment 09 - Ansible](experiment-9/README.md)
-11. [SonarQube - Static Code Analysis](experiment-10/README.md)
+11. [Experiment 10 - SonarQube - Static Code Analysis](experiment-10/README.md)
+12. [Experiment 11 - Orchestration using Docker Compose & Docker Swarm](experiment-11/README.md)
 ## THEORY
 
 1. [Docker Theory Demo B3B4](theory/.DemoB3B4/README.md)
