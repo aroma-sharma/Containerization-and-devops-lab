@@ -114,7 +114,9 @@ docker exec server1 apt-get update
 docker exec server1 apt-get install -y curl
 docker exec server1 curl -L https://omnitruck.chef.io/install.sh | bash
 ```
-![alt text](exp8%20screenshots/image.png)
+<img width="999" height="210" alt="image" src="https://github.com/user-attachments/assets/92f15bf1-7a98-4175-9050-2ee1866120e5" />
+
+
 ---
 
 ### Step 2: Setup Lab Environment (Docker Containers)
@@ -167,9 +169,12 @@ for i in {1..4}; do
   docker exec node${i} chmod 600 /root/.ssh/authorized_keys
 done
 ```
-![alt text](exp8%20screenshots/image-2.png)
-![alt text](exp8%20screenshots/image-1.png)
-![alt text](exp8%20screenshots/image-3.png)
+<img width="1012" height="414" alt="image" src="https://github.com/user-attachments/assets/4bd6ed06-3432-4371-87da-32e8adb7d3ca" />
+
+<img width="1013" height="473" alt="image" src="https://github.com/user-attachments/assets/151d8aff-4e40-4224-ba70-827531da5ebf" />
+
+<img width="993" height="369" alt="image" src="https://github.com/user-attachments/assets/8772ab98-0f98-4b7a-9c27-df3583361357" />
+
 ---
 
 ### Step 3: Create First Cookbook
@@ -191,7 +196,7 @@ chef_version '>= 16.0'
 depends 'apt'
 EOF
 ```
-![alt text](exp8%20screenshots/image-4.png)
+
 ---
 
 ### Step 4: Create Recipes
@@ -203,7 +208,8 @@ include_recipe 'basics::packages'
 include_recipe 'basics::files'
 include_recipe 'basics::services'
 ```
-![alt text](exp8%20screenshots/image-6.png)
+<img width="538" height="318" alt="image" src="https://github.com/user-attachments/assets/d58b161f-24ec-49ea-81ab-9efb8d372326" />
+
 **Packages Recipe** — `cookbooks/basics/recipes/packages.rb`
 
 ```ruby
@@ -223,7 +229,8 @@ package 'python3' do
   version '3.10.*'
 end
 ```
-![alt text](exp8%20screenshots/image-7.png)
+<img width="923" height="617" alt="image" src="https://github.com/user-attachments/assets/efb4c6f5-1729-4463-a1de-042e6feea2f0" />
+
 **Files Recipe** — `cookbooks/basics/recipes/files.rb`
 
 ```ruby
@@ -301,7 +308,8 @@ User=root
 [Install]
 WantedBy=multi-user.target
 ```
-![alt text](exp8%20screenshots/image-8.png)
+<img width="1011" height="306" alt="image" src="https://github.com/user-attachments/assets/b0b4dbba-ad80-4b1c-9693-f961a6f09ec4" />
+
 **Welcome File** — `cookbooks/basics/files/welcome.txt`
 
 ```
@@ -369,7 +377,8 @@ for i in {1..4}; do
   echo ""
 done
 ```
-![alt text](exp8%20screenshots/image-9.png)
+<img width="984" height="436" alt="image" src="https://github.com/user-attachments/assets/5288153b-4383-40b4-9d5f-5ad581d42436" />
+
 ---
 
 ## Part B: Chef Server (Full Enterprise Setup)
@@ -401,7 +410,8 @@ docker cp chef-server:/tmp/devops-validator.pem ~/chef-repo/.chef/
 ```
 
 ---
-![alt text](image.png)
+<img width="1008" height="576" alt="image" src="https://github.com/user-attachments/assets/2db5208c-32cc-4415-9d99-0e1852cd3a14" />
+
 
 ### Step 2: Configure Knife
 
@@ -425,7 +435,7 @@ knife client list
 ```
 
 ---
-![alt text](image-1.png)
+<img width="876" height="269" alt="image" src="https://github.com/user-attachments/assets/57ae05bc-8002-41df-a0a6-35694a64003d" />
 
 ### Step 3: Create Advanced Cookbook (webapp)
 
@@ -469,7 +479,8 @@ service 'nginx' do
   action [:enable, :start]
 end
 ```
-![alt text](image-2.png)
+<img width="882" height="906" alt="image" src="https://github.com/user-attachments/assets/87ba648e-aa08-447c-8c17-0d3f89216faf" />
+
 **App Recipe**
 
 ```ruby
@@ -524,7 +535,8 @@ end
 ```
 
 ---
-![alt text](image-3.png)
+<img width="1097" height="1022" alt="image" src="https://github.com/user-attachments/assets/a71ed994-ad7b-4c95-81dc-4ed2916a1ee0" />
+
 ### Step 4: Create Templates
 
 **Nginx Config** — `cookbooks/webapp/templates/webapp.conf.erb`
@@ -544,7 +556,8 @@ server {
     }
 }
 ```
-![alt text](image-4.png)
+<img width="945" height="814" alt="image" src="https://github.com/user-attachments/assets/2de0a98d-0dbb-4f73-bf39-ab1b4a05f34e" />
+
 **Webapp Service** — `cookbooks/webapp/templates/webapp.service.erb`
 
 ```ini
@@ -626,8 +639,10 @@ done
 ```
 
 ---
-![alt text](image-6.png)
-![alt text](image-7.png)
+<img width="881" height="758" alt="image" src="https://github.com/user-attachments/assets/1c516c2b-b17f-47bc-a1ca-2ca31bfbb758" />
+
+<img width="1016" height="694" alt="image" src="https://github.com/user-attachments/assets/5a834eb9-d8e8-4837-abeb-ff0f5284f545" />
+
 
 ## 6. Comparison: Chef Solo vs Chef Server
 
