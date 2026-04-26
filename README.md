@@ -17,6 +17,7 @@
 10. [Experiment 09 - Ansible](experiment-9/README.md)
 11. [Experiment 10 - SonarQube - Static Code Analysis](experiment-10/README.md)
 12. [Experiment 11 - Orchestration using Docker Compose & Docker Swarm](experiment-11/README.md)
+13. [Experiment 12 - Container Orchestration using Kubernetes](experiment-12/README.md)
 ## THEORY
 
 1. [Docker Theory Demo B3B4](theory/.DemoB3B4/README.md)
