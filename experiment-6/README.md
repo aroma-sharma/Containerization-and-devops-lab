@@ -141,7 +141,7 @@ services:
 ```bash
 docker compose up -d
 ```
- <img width="1003" height="280" alt="image" src="https://github.com/user-attachments/assets/1dc6a444-cf7e-42f7-96eb-8c95994ee245" />
+<img width="995" height="224" alt="image" src="https://github.com/user-attachments/assets/d96f8ac6-c2fa-4427-8b9f-ec5b73a853fb" />
 
 **Verify:**
 ```bash
