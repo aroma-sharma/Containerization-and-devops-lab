@@ -286,8 +286,7 @@ Successfully implemented a complete CI/CD pipeline where:
 ---
 
 ### Screenshot 2 — Create First Admin User
-![Create First Admin User]! <img width="806" height="324" alt="image" src="https://github.com/user-attachments/assets/a2ebff4e-7275-4abe-810c-7b0ccb818a18" />
-
+![Create First Admin User]! 
 
 > Creating the admin user `AromaSharma` during Jenkins initial configuration.
 
